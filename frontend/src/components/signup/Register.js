@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Button, Row, Col, Form, FormControl } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
+import { signupNewUser } from "./SignupActions";
 
 class Register extends React.Component {
     constructor(props) {
@@ -20,7 +25,7 @@ class Register extends React.Component {
             username: this.state.username,
             password: this.state.password
         };
-        console.log("Register " + userData.username + " " + userData.password);
+        this.props.signupNewUser(userData);
     }; 
 
     render() {
@@ -32,25 +37,13 @@ class Register extends React.Component {
                         <Form>
                         <Form.Group controlId="usernameId">
                             <Form.Label>User name</Form.Label>
-                            <Form.Control
-                            type="text"
-                            name="username"
-                            placeholder="Enter user name"
-                            value={this.state.username}
-                            onChange={this.onChange}
-                            />
+                            <Form.Control type="text" name="username" placeholder="Enter user name" value={this.state.username} onChange={this.onChange} />
                             <FormControl.Feedback type="invalid"></FormControl.Feedback>
                         </Form.Group>
 
                         <Form.Group controlId="passwordId">
                             <Form.Label>Your password</Form.Label>
-                            <Form.Control
-                            type="password"
-                            name="password"
-                            placeholder="Enter password"
-                            value={this.password}
-                            onChange={this.onChange}
-                            />
+                            <Form.Control type="password" name="password" placeholder="Enter password" value={this.password} onChange={this.onChange} />
                             <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
                         </Form.Group>
                         </Form>
@@ -68,4 +61,17 @@ class Register extends React.Component {
     }
 }
 
-export default Register;
+// connecting action and reduce
+
+Register.propTypes = {
+    signupNewUser: PropTypes.func.isRequired,
+    createUser: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    createUser: state.createUser
+});
+
+export default connect(mapStateToProps, {
+    signupNewUser
+})(withRouter(Register));

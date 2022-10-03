@@ -20,7 +20,7 @@ class Login extends React.Component {
             username: this.state.username,
             password: this.state.password
         };
-        console.log("Login " + userData.username + userData.password);
+        console.log("Login " + userData.username + " " + userData.password);
     };
 
     render() {
