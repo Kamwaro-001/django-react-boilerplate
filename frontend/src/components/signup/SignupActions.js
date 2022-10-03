@@ -13,7 +13,7 @@ import {
     axios
         .post("api/v1/users/", userData)
         .then(Response => {
-            toast.success("Account for " + userData.username + "created successfully. Please login.");
+            toast.success("Account for " + userData.username + " created successfully. Please login.");
             dispatch({ type: CREATE_USER_SUCCESS });})
         .catch (error => {
             if (error.response) {

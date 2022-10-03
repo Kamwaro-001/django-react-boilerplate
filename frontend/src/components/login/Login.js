@@ -1,6 +1,11 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { Container, Button, Form, Row, Col, FormControl } from "react-bootstrap";
+import { Container, Button, Form, Row, Col } from "react-bootstrap";
+
+import { login } from "./LoginActions.js";
 
 class Login extends React.Component {
     constructor(props){
@@ -20,7 +25,7 @@ class Login extends React.Component {
             username: this.state.username,
             password: this.state.password
         };
-        console.log("Login " + userData.username + " " + userData.password);
+        this.props.login(userData, "./dashboard");
     };
 
     render() {
@@ -39,7 +44,7 @@ class Login extends React.Component {
                             value={this.state.username}
                             onChange={this.onChange}
                             />
-                            <FormControl.Feedback type="invalid"></FormControl.Feedback>
+                            
                         </Form.Group>
 
                         <Form.Group controlId="passwordId">
@@ -65,4 +70,16 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+// connecting action and store and component
+Login.propTypes = {
+    login: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+
+export default connect(mapStateToProps, {
+    login 
+})(withRouter(Login));
