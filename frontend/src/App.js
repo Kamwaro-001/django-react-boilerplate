@@ -8,6 +8,9 @@ import Dashboard from "./components/dashboard/Dashboard";
 import { ToastContainer } from "react-toastify";
 
 import axios from "axios";
+import requireAuth from "./utils/RequireAuth";
+
+
 axios.defaults.baseURL = "http://127.0.0.1:8000";
 
 class App extends React.Component {
@@ -19,7 +22,7 @@ class App extends React.Component {
           <Switch>
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
-            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/dashboard" component={requireAuth(Dashboard)} />
             <Route exact path="/" component={Home} />
           </Switch>
         </Root>
