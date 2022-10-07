@@ -30,14 +30,7 @@ class AddNote extends Component {
         <Form>
           <Form.Group controlId="contentId">
             <Form.Label>Note</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              name="content"
-              placeholder="Enter note"
-              value={this.content}
-              onChange={this.onChange}
-            />
+            <Form.Control as="textarea" rows={3} name="content" placeholder="Enter Note" value={this.content} onChange={this.onChange} />
           </Form.Group>
         </Form>
         <Button variant="success" onClick={this.onAddClick}>

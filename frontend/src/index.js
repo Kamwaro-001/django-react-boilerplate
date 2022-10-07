@@ -6,6 +6,8 @@ import "bootstrap/dist/css/bootstrap.css";
 // eslint-disable-next-line
 import { ToastContainer } from 'react-toastify';
 
+var cors = require('cors')
+// App.use(cors())
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

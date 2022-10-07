@@ -11,6 +11,7 @@
     "bootstrap": "^5.2.1",
     "buffer": "^6.0.3",
     "connected-react-router": "^6.9.3",
+    "cors": "^2.8.5",
     "history": "^4.10.1",
     "net": "^1.0.2",
     "react": "^18.2.0",
