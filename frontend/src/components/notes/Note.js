@@ -25,6 +25,7 @@ class Note extends Component {
 
     render() {
         const { note } = this.props;
+        
         return (
             <div>
                 <hr />
