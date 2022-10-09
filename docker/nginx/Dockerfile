@@ -1,6 +1,6 @@
 # react static files
 
-FROM node:18.10.0-alpine as build
+FROM node:16-alpine as build
 
 WORKDIR /app/frontend
 COPY ./frontend/package.json ./
@@ -12,4 +12,4 @@ RUN npm run build
 # Copy React static files and start nginx
 FROM nginx:stable-alpine
 COPY --from=build /app/frontend/build /usr/share/nginx/html
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"] 

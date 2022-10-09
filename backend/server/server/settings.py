@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-qw5a!xc*zlbxy_wn&rn27cj0445-sedyl(=u25tccwb^b0bg30
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
 
 
 # Application definition
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    
 ]
 
 #configure DRF
