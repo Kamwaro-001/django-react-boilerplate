@@ -4,8 +4,7 @@ import ReactDOM from "react-dom";
 import './index.css';
 import App from './App';
 import "bootstrap/dist/css/bootstrap.css";
-// eslint-disable-next-line
-import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 // var cors = require('cors')
 // App.use(cors())
